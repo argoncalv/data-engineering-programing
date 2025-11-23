@@ -65,7 +65,7 @@ class DataHandler:
     def load_pagamentos(self, path: str) -> DataFrame:
         """Carrega o dataframe de clientes a partir de um arquivo JSON."""
         schema = self._get_schema_pagamentos()
-        return self.spark.read.option("compression", "gzip").json(path, schema=schema)
+        return self.spark.read.option("compression", "gzip").option("recursiveFileLookup", "true").json(path, schema=schema)
 
     def load_pedidos(
         self, path: str, compression: str, header: bool, sep: str
@@ -73,7 +73,7 @@ class DataHandler:
         """Carrega o dataframe de pedidos a partir de um arquivo CSV."""
         schema = self._get_schema_pedidos()
         try:
-            return self.spark.read.option("compression", "gzip").csv(
+            return self.spark.read.option("compression", "gzip").option("recursiveFileLookup", "true").csv(
                 path, header=True, schema=schema, sep=";"
             )
         except AnalysisException as e:

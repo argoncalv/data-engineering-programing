@@ -3,8 +3,8 @@ spark:
   app_name: "Analise de Pedidos"
 
 paths:
-  pagamentos: "data/input/pagamentos/pagamentos*.gz"
-  pedidos: "data/input/pedidos/pedidos*.csv.gz"
+  pagamentos: "data/input/pagamentos/"
+  pedidos: "data/input/pedidos/"
   output: "data/output/relatorio_pedidos_de_venda"
 
 file_options:

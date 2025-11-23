@@ -25,6 +25,7 @@ class Pipeline:
 
         logger.info("Abrindo o dataframe de pagamentos")
         path_pagamentos = config["paths"]["pagamentos"]
+        #logger.info(f"Caminho dos pagamentos: {path_pagamentos}")
         pagamentos_df = self.data_handler.load_pagamentos(path=path_pagamentos)
         #logger.info("Abrindo o dataframe de clientes")
         #path_clientes = config["paths"]["clientes"]
