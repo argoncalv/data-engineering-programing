@@ -27,12 +27,10 @@ class Pipeline:
         path_pagamentos = config["paths"]["pagamentos"]
         #logger.info(f"Caminho dos pagamentos: {path_pagamentos}")
         pagamentos_df = self.data_handler.load_pagamentos(path=path_pagamentos)
-        #logger.info("Abrindo o dataframe de clientes")
-        #path_clientes = config["paths"]["clientes"]
-        #clientes_df = self.data_handler.load_clientes(path=path_clientes)
-
+        
         pagamentos_df.show(5, truncate=False)
-        #clientes_df.show(5, truncate=False)
+        #pagamentos_df.printSchema()
+        
 
         logger.info("Abrindo o dataframe de pedidos")
         path_pedidos = config["paths"]["pedidos"]
@@ -56,23 +54,18 @@ class Pipeline:
             pedidos_df
         )
         pedidos_com_valor_total_df.show(5, truncate=False)
-
-        #logger.info(
-        #    "Calculando o valor total de pedidos por cliente e filtrar os 10 maiores"
-        #)
-        #top_10_clientes_df = self.transformer.get_top_10_clientes(
-        #    pedidos_com_valor_total_df
-        #)
-
-        #top_10_clientes_df.show(10, truncate=False)
-
+        
+        logger.info("Analisando Base Pagamento")
+        df_pagamento_analise = self.transformer.get_distinct_pagamentos_status(
+            pagamentos_df)
+            
+        df_pagamento_analise.show(100, truncate=False)
+        
         logger.info("Fazendo a junção dos dataframes")
         resultado_final_df = self.transformer.join_pedidos_pagamentos(
             pedidos_com_valor_total_df, pagamentos_df
         )
-        #resultado_final_df = self.transformer.join_pedidos_clientes(
-        #    top_10_clientes_df, clientes_df
-        #)
+        
 
         resultado_final_df.show(20, truncate=False)
 
