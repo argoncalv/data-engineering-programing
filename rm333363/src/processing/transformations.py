@@ -33,8 +33,11 @@ class Transformation:
             pagamentos_df, pagamentos_df.id_pedido == pedidos_df.id_pedido, "inner"
         ).filter(
             (col("status") == False) 
-            & (col("avaliacao_fraude.status_fraude") == False)
+            #& (col("avaliacao_fraude.status_fraude") == True)
+            & (F.coalesce(col("avaliacao_fraude.status_fraude"), F.lit(False)) == False)
             & (year(col("data_criacao")) == year(current_timestamp()))
+        
+        #).filter(year(col("data_criacao")) == year(current_timestamp())
         ).select(
             pedidos_df.id_pedido,             #1. Identificador do pedido (id pedido) 
             pedidos_df.uf,                    #2. Estado (UF) onde o pedido foi feito 
@@ -42,18 +45,18 @@ class Transformation:
             pedidos_df.valor_total,           #4. Valor total do pedido 
             pedidos_df.data_criacao,          #5. Data do pedido 
         ).orderBy("uf", "forma_pagamento", "data_criacao")
-    
-    '''
-    def join_pedidos_clientes(
-        self, pedidos_df: DataFrame, clientes_df: DataFrame
-    ) -> DataFrame:
-        """Faz a junção entre os DataFrames de pedidos e clientes."""
-        return pedidos_df.join(
-            clientes_df, clientes_df.id == pedidos_df.id_cliente, "inner"
-        ).select(
-            pedidos_df.id_cliente,
-            clientes_df.nome,
-            clientes_df.email,
-            pedidos_df.valor_total,
+        
+        
+    def get_distinct_pagamentos_status(self, pagamentos_df: DataFrame) -> DataFrame:
+        """
+        Retorna os valores distintos das colunas 'status' e 'avaliacao_fraude.status_fraude'
+        do DataFrame de pagamentos.
+        """
+        return (
+            pagamentos_df
+            .select("status", "avaliacao_fraude.status_fraude")
+            .distinct()
+            .orderBy("status", "status_fraude")
+            #.filter((year(col("data_criacao")) == year(current_timestamp())))
         )
-    '''
+    
