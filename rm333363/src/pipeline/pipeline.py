@@ -28,7 +28,7 @@ class Pipeline:
         #logger.info(f"Caminho dos pagamentos: {path_pagamentos}")
         pagamentos_df = self.data_handler.load_pagamentos(path=path_pagamentos)
         
-        pagamentos_df.show(5, truncate=False)
+        #pagamentos_df.show(5, truncate=False)
         #pagamentos_df.printSchema()
         
 
@@ -53,7 +53,7 @@ class Pipeline:
         pedidos_com_valor_total_df = self.transformer.add_valor_total_pedidos(
             pedidos_df
         )
-        pedidos_com_valor_total_df.show(5, truncate=False)
+        #pedidos_com_valor_total_df.show(5, truncate=False)
         
         logger.info("Analisando Base Pagamento")
         df_pagamento_analise = self.transformer.get_distinct_pagamentos_status(
@@ -66,8 +66,13 @@ class Pipeline:
             pedidos_com_valor_total_df, pagamentos_df
         )
         
-
-        resultado_final_df.show(20, truncate=False)
+        #pagamentos_df.printSchema()
+        #pedidos_com_valor_total_df.printSchema()
+        #resultado_final_df.printSchema()
+        
+        #pagamentos_df.show(10, truncate=False)
+        #pedidos_com_valor_total_df.show(10, truncate=False)
+        #resultado_final_df.show(20, truncate=False)
 
         logger.info("Escrevendo o resultado em parquet")
         path_output = config["paths"]["output"]

@@ -1,0 +1,736 @@
+2025-11-23 21:02:26 - root - INFO - Logging configurado.
+2025-11-23 21:02:31 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 21:02:31 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 21:02:35 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 21:02:35 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 21:02:36 - root - ERROR - Ocorreu um erro inesperado na execução do programa: An error occurred while calling o54.showString.
+: org.apache.spark.SparkException: [FAILED_READ_FILE.NO_HINT] Encountered error while reading file file:///home/ubuntu/environment/rm333363/data/input/pedidos/pedidos-2024-01.csv.gz.  SQLSTATE: KD001
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:856)
+	at org.apache.spark.sql.execution.datasources.v2.FileDataSourceV2$.attachFilePath(FileDataSourceV2.scala:142)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:142)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1009)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2484)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2505)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2524)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:544)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:497)
+	at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:58)
+	at org.apache.spark.sql.classic.Dataset.collectFromPlan(Dataset.scala:2244)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$head$1(Dataset.scala:1379)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$2(Dataset.scala:2234)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$1(Dataset.scala:2232)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:162)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:268)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:124)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:124)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:291)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:123)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:77)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:233)
+	at org.apache.spark.sql.classic.Dataset.withAction(Dataset.scala:2232)
+	at org.apache.spark.sql.classic.Dataset.head(Dataset.scala:1379)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:2810)
+	at org.apache.spark.sql.classic.Dataset.getRows(Dataset.scala:339)
+	at org.apache.spark.sql.classic.Dataset.showString(Dataset.scala:375)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.IOException: not a gzip file
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.processBasicHeader(BuiltInGzipDecompressor.java:511)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.executeHeaderState(BuiltInGzipDecompressor.java:270)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.decompress(BuiltInGzipDecompressor.java:199)
+	at org.apache.hadoop.io.compress.DecompressorStream.decompress(DecompressorStream.java:111)
+	at org.apache.hadoop.io.compress.DecompressorStream.read(DecompressorStream.java:105)
+	at java.base/java.io.InputStream.read(InputStream.java:218)
+	at org.apache.hadoop.util.LineReader.fillBuffer(LineReader.java:191)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:227)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:185)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.skipUtfByteOrderMark(LineRecordReader.java:166)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.nextKeyValue(LineRecordReader.java:206)
+	at org.apache.spark.sql.execution.datasources.RecordReaderIterator.hasNext(RecordReaderIterator.scala:39)
+	at org.apache.spark.sql.execution.datasources.HadoopFileLinesReader.hasNext(HadoopFileLinesReader.scala:71)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:656)
+	at org.apache.spark.sql.catalyst.csv.CSVExprUtils$.extractHeader(CSVExprUtils.scala:56)
+	at org.apache.spark.sql.catalyst.csv.CSVHeaderChecker.checkHeaderColumnNames(CSVHeaderChecker.scala:136)
+	at org.apache.spark.sql.catalyst.csv.UnivocityParser$.parseIterator(UnivocityParser.scala:463)
+	at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.readFile(CSVDataSource.scala:113)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.$anonfun$buildReader$2(CSVFileFormat.scala:147)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:155)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:140)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.org$apache$spark$sql$execution$datasources$FileScanRDD$$anon$$readCurrentFile(FileScanRDD.scala:230)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:289)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext0(FileScanRDD.scala:131)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:140)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 more
+
+2025-11-23 21:02:36 - root - INFO - Sessão Spark finalizada.
+2025-11-23 21:02:36 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 21:09:40 - root - INFO - Logging configurado.
+2025-11-23 21:09:45 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 21:09:45 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 21:09:49 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 21:09:49 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 21:09:50 - root - ERROR - Ocorreu um erro inesperado na execução do programa: An error occurred while calling o54.showString.
+: org.apache.spark.SparkException: [FAILED_READ_FILE.NO_HINT] Encountered error while reading file file:///home/ubuntu/environment/rm333363/data/input/pedidos/pedidos-2024-01.csv.gz.  SQLSTATE: KD001
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:856)
+	at org.apache.spark.sql.execution.datasources.v2.FileDataSourceV2$.attachFilePath(FileDataSourceV2.scala:142)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:142)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1009)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2484)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2505)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2524)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:544)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:497)
+	at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:58)
+	at org.apache.spark.sql.classic.Dataset.collectFromPlan(Dataset.scala:2244)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$head$1(Dataset.scala:1379)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$2(Dataset.scala:2234)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$1(Dataset.scala:2232)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:162)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:268)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:124)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:124)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:291)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:123)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:77)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:233)
+	at org.apache.spark.sql.classic.Dataset.withAction(Dataset.scala:2232)
+	at org.apache.spark.sql.classic.Dataset.head(Dataset.scala:1379)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:2810)
+	at org.apache.spark.sql.classic.Dataset.getRows(Dataset.scala:339)
+	at org.apache.spark.sql.classic.Dataset.showString(Dataset.scala:375)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.IOException: not a gzip file
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.processBasicHeader(BuiltInGzipDecompressor.java:511)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.executeHeaderState(BuiltInGzipDecompressor.java:270)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.decompress(BuiltInGzipDecompressor.java:199)
+	at org.apache.hadoop.io.compress.DecompressorStream.decompress(DecompressorStream.java:111)
+	at org.apache.hadoop.io.compress.DecompressorStream.read(DecompressorStream.java:105)
+	at java.base/java.io.InputStream.read(InputStream.java:218)
+	at org.apache.hadoop.util.LineReader.fillBuffer(LineReader.java:191)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:227)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:185)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.skipUtfByteOrderMark(LineRecordReader.java:166)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.nextKeyValue(LineRecordReader.java:206)
+	at org.apache.spark.sql.execution.datasources.RecordReaderIterator.hasNext(RecordReaderIterator.scala:39)
+	at org.apache.spark.sql.execution.datasources.HadoopFileLinesReader.hasNext(HadoopFileLinesReader.scala:71)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:656)
+	at org.apache.spark.sql.catalyst.csv.CSVExprUtils$.extractHeader(CSVExprUtils.scala:56)
+	at org.apache.spark.sql.catalyst.csv.CSVHeaderChecker.checkHeaderColumnNames(CSVHeaderChecker.scala:136)
+	at org.apache.spark.sql.catalyst.csv.UnivocityParser$.parseIterator(UnivocityParser.scala:463)
+	at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.readFile(CSVDataSource.scala:113)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.$anonfun$buildReader$2(CSVFileFormat.scala:147)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:155)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:140)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.org$apache$spark$sql$execution$datasources$FileScanRDD$$anon$$readCurrentFile(FileScanRDD.scala:230)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:289)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext0(FileScanRDD.scala:131)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:140)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 more
+
+2025-11-23 21:09:50 - root - INFO - Sessão Spark finalizada.
+2025-11-23 21:09:50 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 21:36:43 - root - INFO - Logging configurado.
+2025-11-23 21:36:48 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 21:36:48 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 21:36:52 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 21:36:52 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 21:36:53 - root - ERROR - Ocorreu um erro inesperado na execução do programa: An error occurred while calling o54.showString.
+: org.apache.spark.SparkException: [FAILED_READ_FILE.NO_HINT] Encountered error while reading file file:///home/ubuntu/environment/rm333363/data/input/pedidos/pedidos-2024-01.csv.gz.  SQLSTATE: KD001
+	at org.apache.spark.sql.errors.QueryExecutionErrors$.cannotReadFilesError(QueryExecutionErrors.scala:856)
+	at org.apache.spark.sql.execution.datasources.v2.FileDataSourceV2$.attachFilePath(FileDataSourceV2.scala:142)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:142)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1009)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2484)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2505)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2524)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:544)
+	at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:497)
+	at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:58)
+	at org.apache.spark.sql.classic.Dataset.collectFromPlan(Dataset.scala:2244)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$head$1(Dataset.scala:1379)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$2(Dataset.scala:2234)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
+	at org.apache.spark.sql.classic.Dataset.$anonfun$withAction$1(Dataset.scala:2232)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:162)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:268)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:124)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:124)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:291)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:123)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:77)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:233)
+	at org.apache.spark.sql.classic.Dataset.withAction(Dataset.scala:2232)
+	at org.apache.spark.sql.classic.Dataset.head(Dataset.scala:1379)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:2810)
+	at org.apache.spark.sql.classic.Dataset.getRows(Dataset.scala:339)
+	at org.apache.spark.sql.classic.Dataset.showString(Dataset.scala:375)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.IOException: not a gzip file
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.processBasicHeader(BuiltInGzipDecompressor.java:511)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.executeHeaderState(BuiltInGzipDecompressor.java:270)
+	at org.apache.hadoop.io.compress.zlib.BuiltInGzipDecompressor.decompress(BuiltInGzipDecompressor.java:199)
+	at org.apache.hadoop.io.compress.DecompressorStream.decompress(DecompressorStream.java:111)
+	at org.apache.hadoop.io.compress.DecompressorStream.read(DecompressorStream.java:105)
+	at java.base/java.io.InputStream.read(InputStream.java:218)
+	at org.apache.hadoop.util.LineReader.fillBuffer(LineReader.java:191)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:227)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:185)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.skipUtfByteOrderMark(LineRecordReader.java:166)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.nextKeyValue(LineRecordReader.java:206)
+	at org.apache.spark.sql.execution.datasources.RecordReaderIterator.hasNext(RecordReaderIterator.scala:39)
+	at org.apache.spark.sql.execution.datasources.HadoopFileLinesReader.hasNext(HadoopFileLinesReader.scala:71)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:656)
+	at org.apache.spark.sql.catalyst.csv.CSVExprUtils$.extractHeader(CSVExprUtils.scala:56)
+	at org.apache.spark.sql.catalyst.csv.CSVHeaderChecker.checkHeaderColumnNames(CSVHeaderChecker.scala:136)
+	at org.apache.spark.sql.catalyst.csv.UnivocityParser$.parseIterator(UnivocityParser.scala:463)
+	at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.readFile(CSVDataSource.scala:113)
+	at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.$anonfun$buildReader$2(CSVFileFormat.scala:147)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:155)
+	at org.apache.spark.sql.execution.datasources.FileFormat$$anon$1.apply(FileFormat.scala:140)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.org$apache$spark$sql$execution$datasources$FileScanRDD$$anon$$readCurrentFile(FileScanRDD.scala:230)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.nextIterator(FileScanRDD.scala:289)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext0(FileScanRDD.scala:131)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:140)
+	at scala.collection.Iterator$$anon$9.hasNext(Iterator.scala:583)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIteratorForCodegenStage1.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenEvaluatorFactory$WholeStageCodegenPartitionEvaluator$$anon$1.hasNext(WholeStageCodegenEvaluatorFactory.scala:50)
+	at org.apache.spark.sql.execution.SparkPlan.$anonfun$getByteArrayRdd$1(SparkPlan.scala:402)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:171)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:647)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:80)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:77)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:650)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	... 1 more
+
+2025-11-23 21:36:53 - root - INFO - Sessão Spark finalizada.
+2025-11-23 21:36:53 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 22:26:30 - root - INFO - Logging configurado.
+2025-11-23 22:26:36 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 22:26:36 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 22:26:40 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 22:26:40 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 22:26:41 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 22:26:42 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 22:26:44 - root - INFO - Sessão Spark finalizada.
+2025-11-23 22:26:44 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 22:45:35 - root - INFO - Logging configurado.
+2025-11-23 22:45:40 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 22:45:40 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 22:45:40 - pipeline.pipeline - INFO - Caminho dos pagamentos: data/input/pagamentos/pagamentos-2025-01.json.gz
+2025-11-23 22:45:44 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 22:45:44 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 22:45:45 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 22:45:46 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 22:45:48 - root - INFO - Sessão Spark finalizada.
+2025-11-23 22:45:48 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 22:47:14 - root - INFO - Logging configurado.
+2025-11-23 22:47:19 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 22:47:19 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 22:47:19 - pipeline.pipeline - INFO - Caminho dos pagamentos: data/input/pagamentos/pagamentos*.json.gz
+2025-11-23 22:47:24 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 22:47:24 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 22:47:24 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 22:47:27 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 22:47:30 - root - INFO - Sessão Spark finalizada.
+2025-11-23 22:47:30 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 22:53:56 - root - INFO - Logging configurado.
+2025-11-23 22:54:01 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 22:54:01 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 22:54:06 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 22:54:06 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 22:54:06 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 22:54:10 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 22:54:13 - root - INFO - Sessão Spark finalizada.
+2025-11-23 22:54:13 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:05:10 - root - INFO - Logging configurado.
+2025-11-23 23:05:15 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:05:15 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:05:19 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:05:19 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:05:20 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:05:23 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:05:27 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:05:27 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:18:03 - root - INFO - Logging configurado.
+2025-11-23 23:18:09 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:18:09 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:18:13 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:18:13 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:18:14 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:18:17 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:18:22 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:18:22 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:20:35 - root - INFO - Logging configurado.
+2025-11-23 23:20:40 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:20:40 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:20:44 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:20:44 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:20:45 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:20:49 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:20:53 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:20:53 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:22:19 - root - INFO - Logging configurado.
+2025-11-23 23:22:24 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:22:24 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:22:28 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:22:28 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:22:29 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:22:32 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:22:37 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:22:37 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:25:49 - root - INFO - Logging configurado.
+2025-11-23 23:25:54 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:25:54 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:25:58 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:25:58 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:25:59 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:26:02 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:26:06 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:26:06 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:41:13 - root - INFO - Logging configurado.
+2025-11-23 23:41:18 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:41:18 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:41:23 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:41:23 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:41:24 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-23 23:41:24 - DataFrameQueryContextLogger - ERROR - [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column, variable, or function parameter with name `data_criacao` cannot be resolved. Did you mean one of the following? [`status`, `status_fraude`]. SQLSTATE: 42703
+Traceback (most recent call last):
+  File "/home/ubuntu/environment/rm333363/.venv/lib/python3.10/site-packages/pyspark/python/lib/pyspark.zip/pyspark/errors/exceptions/captured.py", line 282, in deco
+    return f(*a, **kw)
+  File "/home/ubuntu/environment/rm333363/.venv/lib/python3.10/site-packages/pyspark/python/lib/py4j-0.10.9.9-src.zip/py4j/protocol.py", line 327, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o69.filter.
+: org.apache.spark.sql.AnalysisException: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column, variable, or function parameter with name `data_criacao` cannot be resolved. Did you mean one of the following? [`status`, `status_fraude`]. SQLSTATE: 42703;
+'Filter '`=`('year('data_criacao), year(cast(current_timestamp() as date)))
++- Sort [status#3 ASC NULLS FIRST, status_fraude#73 ASC NULLS FIRST], true
+   +- Deduplicate [status#3, status_fraude#73]
+      +- Project [status#3, avaliacao_fraude#5.status_fraude AS status_fraude#73]
+         +- Relation [id_pedido#0,forma_pagamento#1,valor_pagamento#2,status#3,data_processamento#4,avaliacao_fraude#5] json
+
+	at org.apache.spark.sql.errors.QueryCompilationErrors$.unresolvedAttributeError(QueryCompilationErrors.scala:401)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$$failUnresolvedAttribute(CheckAnalysis.scala:169)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$7(CheckAnalysis.scala:404)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$7$adapted(CheckAnalysis.scala:402)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:252)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:251)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:251)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:619)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:617)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:935)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:251)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:251)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:251)
+	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:619)
+	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:617)
+	at scala.collection.AbstractIterable.foreach(Iterable.scala:935)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:251)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$6(CheckAnalysis.scala:402)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$6$adapted(CheckAnalysis.scala:402)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2(CheckAnalysis.scala:402)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2$adapted(CheckAnalysis.scala:284)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:252)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0(CheckAnalysis.scala:284)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0$(CheckAnalysis.scala:255)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis0(Analyzer.scala:249)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis(CheckAnalysis.scala:244)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis$(CheckAnalysis.scala:231)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:249)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$resolveInFixedPoint$1(HybridAnalyzer.scala:192)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker$.withTracker(QueryPlanningTracker.scala:89)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.resolveInFixedPoint(HybridAnalyzer.scala:192)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$apply$1(HybridAnalyzer.scala:76)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.withTrackedAnalyzerBridgeState(HybridAnalyzer.scala:111)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.apply(HybridAnalyzer.scala:71)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$1(Analyzer.scala:280)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:423)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:280)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$2(QueryExecution.scala:110)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:148)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:278)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:278)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:277)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$1(QueryExecution.scala:110)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1378)
+	at org.apache.spark.util.Utils$.getTryWithCallerStacktrace(Utils.scala:1439)
+	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+	at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:121)
+	at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:80)
+	at org.apache.spark.sql.classic.Dataset.<init>(Dataset.scala:250)
+	at org.apache.spark.sql.classic.Dataset.<init>(Dataset.scala:262)
+	at org.apache.spark.sql.classic.Dataset$.apply(Dataset.scala:99)
+	at org.apache.spark.sql.classic.Dataset.withSameTypedPlan(Dataset.scala:2273)
+	at org.apache.spark.sql.classic.Dataset.filter(Dataset.scala:926)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+	Suppressed: org.apache.spark.util.Utils$OriginalTryStackTraceException: Full stacktrace of original doTryWithCallerStacktrace caller
+		at org.apache.spark.sql.errors.QueryCompilationErrors$.unresolvedAttributeError(QueryCompilationErrors.scala:401)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.org$apache$spark$sql$catalyst$analysis$CheckAnalysis$$failUnresolvedAttribute(CheckAnalysis.scala:169)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$7(CheckAnalysis.scala:404)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$7$adapted(CheckAnalysis.scala:402)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:252)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:251)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:251)
+		at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:619)
+		at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:617)
+		at scala.collection.AbstractIterable.foreach(Iterable.scala:935)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:251)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1(TreeNode.scala:251)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$foreachUp$1$adapted(TreeNode.scala:251)
+		at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:619)
+		at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:617)
+		at scala.collection.AbstractIterable.foreach(Iterable.scala:935)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:251)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$6(CheckAnalysis.scala:402)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$6$adapted(CheckAnalysis.scala:402)
+		at scala.collection.immutable.List.foreach(List.scala:334)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2(CheckAnalysis.scala:402)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2$adapted(CheckAnalysis.scala:284)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:252)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0(CheckAnalysis.scala:284)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0$(CheckAnalysis.scala:255)
+		at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis0(Analyzer.scala:249)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis(CheckAnalysis.scala:244)
+		at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis$(CheckAnalysis.scala:231)
+		at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:249)
+		at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$resolveInFixedPoint$1(HybridAnalyzer.scala:192)
+		at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+		at org.apache.spark.sql.catalyst.QueryPlanningTracker$.withTracker(QueryPlanningTracker.scala:89)
+		at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.resolveInFixedPoint(HybridAnalyzer.scala:192)
+		at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$apply$1(HybridAnalyzer.scala:76)
+		at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.withTrackedAnalyzerBridgeState(HybridAnalyzer.scala:111)
+		at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.apply(HybridAnalyzer.scala:71)
+		at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$1(Analyzer.scala:280)
+		at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:423)
+		at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:280)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$2(QueryExecution.scala:110)
+		at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:148)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:278)
+		at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:654)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:278)
+		at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+		at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:277)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$1(QueryExecution.scala:110)
+		at scala.util.Try$.apply(Try.scala:217)
+		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1378)
+		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+		... 20 more
+
+2025-11-23 23:41:24 - root - ERROR - Ocorreu um erro inesperado na execução do programa: [UNRESOLVED_COLUMN.WITH_SUGGESTION] A column, variable, or function parameter with name `data_criacao` cannot be resolved. Did you mean one of the following? [`status`, `status_fraude`]. SQLSTATE: 42703;
+'Filter '`=`('year('data_criacao), year(cast(current_timestamp() as date)))
++- Sort [status#3 ASC NULLS FIRST, status_fraude#73 ASC NULLS FIRST], true
+   +- Deduplicate [status#3, status_fraude#73]
+      +- Project [status#3, avaliacao_fraude#5.status_fraude AS status_fraude#73]
+         +- Relation [id_pedido#0,forma_pagamento#1,valor_pagamento#2,status#3,data_processamento#4,avaliacao_fraude#5] json
+
+2025-11-23 23:41:24 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:41:24 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:44:27 - root - INFO - Logging configurado.
+2025-11-23 23:44:32 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:44:32 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:44:36 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:44:36 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:44:37 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-23 23:44:40 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:44:43 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:44:46 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:44:46 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-23 23:49:23 - root - INFO - Logging configurado.
+2025-11-23 23:49:28 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-23 23:49:28 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-23 23:49:33 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-23 23:49:33 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-23 23:49:33 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-23 23:49:36 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-23 23:49:40 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-23 23:49:43 - root - INFO - Sessão Spark finalizada.
+2025-11-23 23:49:43 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-25 23:52:21 - root - INFO - Logging configurado.
+2025-11-25 23:52:23 - root - ERROR - Ocorreu um erro inesperado na execução do programa: An error occurred while calling None.org.apache.spark.api.java.JavaSparkContext.
+: java.io.FileNotFoundException: File file:/home/ubuntu/environment/rm333363/dist/dataeng_pyspark_data_pipeline-0.1.0-py3-none-any.whl does not exist
+	at org.apache.hadoop.fs.RawLocalFileSystem.deprecatedGetFileStatus(RawLocalFileSystem.java:917)
+	at org.apache.hadoop.fs.RawLocalFileSystem.getFileLinkStatusInternal(RawLocalFileSystem.java:1238)
+	at org.apache.hadoop.fs.RawLocalFileSystem.getFileStatus(RawLocalFileSystem.java:907)
+	at org.apache.hadoop.fs.FilterFileSystem.getFileStatus(FilterFileSystem.java:462)
+	at org.apache.spark.SparkContext.addFile(SparkContext.scala:1823)
+	at org.apache.spark.SparkContext.$anonfun$new$16(SparkContext.scala:545)
+	at org.apache.spark.SparkContext.$anonfun$new$16$adapted(SparkContext.scala:545)
+	at scala.collection.immutable.List.foreach(List.scala:334)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:545)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:59)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:238)
+	at py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+	at py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:184)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:108)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+2025-11-25 23:52:23 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-25 23:54:18 - root - INFO - Logging configurado.
+2025-11-25 23:54:23 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-25 23:54:23 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-25 23:54:27 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-25 23:54:27 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-25 23:54:28 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-25 23:54:31 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-25 23:54:34 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-25 23:54:38 - root - INFO - Sessão Spark finalizada.
+2025-11-25 23:54:38 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:31:32 - root - INFO - Logging configurado.
+2025-11-26 00:31:37 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:31:37 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:31:41 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:31:41 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:31:41 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:31:44 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:31:47 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:31:50 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:31:50 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:43:39 - root - INFO - Logging configurado.
+2025-11-26 00:43:44 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:43:44 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:43:45 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:43:45 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:43:45 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:43:45 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:43:52 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:43:56 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:43:56 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:44:55 - root - INFO - Logging configurado.
+2025-11-26 00:45:00 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:45:00 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:45:01 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:45:01 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:45:02 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:45:02 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:45:04 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:45:10 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:45:10 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:45:23 - root - INFO - Logging configurado.
+2025-11-26 00:45:27 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:45:27 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:45:29 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:45:29 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:45:29 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:45:29 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:45:31 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:45:38 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:45:38 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:47:17 - root - INFO - Logging configurado.
+2025-11-26 00:47:22 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:47:22 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:47:24 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:47:24 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:47:24 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:47:24 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:47:27 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:47:33 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:47:33 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:48:01 - root - INFO - Logging configurado.
+2025-11-26 00:48:05 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:48:05 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:48:07 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:48:07 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:48:07 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:48:07 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:48:10 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:48:16 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:48:16 - py4j.clientserver - INFO - Closing down clientserver connection
+2025-11-26 00:53:14 - root - INFO - Logging configurado.
+2025-11-26 00:53:19 - pipeline.pipeline - INFO - Pipeline iniciado...
+2025-11-26 00:53:19 - pipeline.pipeline - INFO - Abrindo o dataframe de pagamentos
+2025-11-26 00:53:21 - pipeline.pipeline - INFO - Abrindo o dataframe de pedidos
+2025-11-26 00:53:21 - pipeline.pipeline - INFO - Adicionando a coluna valor_total
+2025-11-26 00:53:21 - pipeline.pipeline - INFO - Analisando Base Pagamento
+2025-11-26 00:53:26 - pipeline.pipeline - INFO - Fazendo a junção dos dataframes
+2025-11-26 00:53:26 - pipeline.pipeline - INFO - Escrevendo o resultado em parquet
+2025-11-26 00:53:31 - root - INFO - Sessão Spark finalizada.
+2025-11-26 00:53:31 - py4j.clientserver - INFO - Closing down clientserver connection

@@ -4,12 +4,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "dataeng_pyspark_trabalho_final"
+name = "rm333363_pyspark_data_pipeline"
 version = "0.1.0"
 authors = [
   { name="argoncalv", email="rgoncalves.alexandre@gmail.com" },
 ]
-description = "Data Engineering Programming – Trabalho Final. Um pipeline de dados com PySpark estruturado com boas práticas de engenharia de software."
+description = "Um pipeline de dados com PySpark estruturado com boas práticas de engenharia de software."
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
